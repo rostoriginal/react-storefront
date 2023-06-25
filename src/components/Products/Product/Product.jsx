@@ -16,18 +16,21 @@ const Product = ({ product }) => {
   return (
     <ThemeProvider theme={productTheme}>
       <Card>
-        <CardMedia image={product.image} title={product.title} />
+        <CardMedia image={product.image.url} title={product.name} />
         <CardContent>
           <div>
             <Typography variant="h5" gutterBottom>
               {product.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary">
-            {product.description}
-          </Typography>
-          
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
           </div>
-          <Typography variant="h5">{product.price}</Typography>
+          <Typography variant="h5">
+            {product.price.formatted_with_symbol}
+          </Typography>
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="Add to Cart">
