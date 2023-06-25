@@ -1,4 +1,12 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, styled } from "@mui/material/styles";
+
+export const NavBarLogoImage = styled('img')({
+  marginRight: '10px',
+});
+
+export const NavbarGrow = styled('div')({
+  flexGrow: 1,
+});
 
 const drawerWidth = 0;
 
