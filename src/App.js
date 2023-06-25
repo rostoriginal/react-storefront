@@ -1,14 +1,16 @@
 import React from "react";
-import Products from "./components/Products/Products";
 import CssBaseline from "@mui/material/CssBaseline";
+
+import { Products, Navbar } from "./components";
+
+import "./style.css";
 
 const App = () => {
   return (
     <>
       <CssBaseline />
-      <div>
-        <Products />
-      </div>
+      <Navbar />
+      <Products />
     </>
   );
 };

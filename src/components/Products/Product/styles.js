@@ -4,7 +4,9 @@ const productTheme = createTheme({
   components: {
     MuiCard: {
       styleOverrides: {
-        maxWidth: "100%",
+        root: {
+          maxWidth: "100%",
+        },
       },
     },
     MuiCardMedia: {
@@ -19,7 +21,7 @@ const productTheme = createTheme({
       styleOverrides: {
         root: {
           display: "flex",
-          justifyContent: 'space-between',
+          justifyContent: "space-between",
         },
       },
     },

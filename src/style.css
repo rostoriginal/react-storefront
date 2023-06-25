@@ -1,0 +1,10 @@
+// TODO: Move styles to different files
+
+// NavBar
+.NavbarLogoImage {
+  margin-right: 10px;
+}
+
+.NavbarGrow {
+  flexgrow: 1;
+}
