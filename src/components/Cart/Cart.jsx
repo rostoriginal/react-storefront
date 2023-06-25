@@ -9,10 +9,21 @@ import cartTheme, {
 } from "./styles";
 import CartItem from "./CartItem/CartItem";
 
+import { Link } from "react-router-dom";
+
 const Cart = ({ cart }) => {
   const EmptyCart = () => (
     <Typography variant="subtitle1">
-      You have no items in your shopping cart, start adding some!
+      You have no items in your shopping cart,
+      <Link
+        to="/"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        {" "}
+        start adding some!
+      </Link>
     </Typography>
   );
 
@@ -60,7 +71,7 @@ const Cart = ({ cart }) => {
           <Typography variant="h3" gutterBottom>
             Your Shopping Cart
           </Typography>
-          {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+          {cart.line_items.length ? <EmptyCart /> : <FilledCart />}
         </CartToolbar>
       </Container>
     </ThemeProvider>

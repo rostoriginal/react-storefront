@@ -55,20 +55,8 @@ export const CardDetails = styled("div")(({ theme }) => ({
 }));
 
 const cartTheme = createTheme({
-  components: {
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          textDecoration: "none",
-        },
-      },
-    },
-  },
   typography: {
     h3: {
-      marginTop: "10%",
-    },
-    subtitle1: {
       marginTop: "10%",
     },
   },
