@@ -12,7 +12,7 @@ import {
 
 import { AddShoppingCart } from "@mui/icons-material";
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
   return (
     <ThemeProvider theme={productTheme}>
       <Card>
@@ -33,7 +33,10 @@ const Product = ({ product }) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="Add to Cart">
+          <IconButton
+            aria-label="Add to Cart"
+            onClick={() => onAddToCart(product.id, 1)}
+          >
             <AddShoppingCart />
           </IconButton>
         </CardActions>

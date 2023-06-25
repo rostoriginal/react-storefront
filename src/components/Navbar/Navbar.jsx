@@ -15,7 +15,7 @@ import navbarTheme from "./styles";
 
 import logo from "../../assets/img/logo.png";
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
   return (
     <>
       <ThemeProvider theme={navbarTheme}>
@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="NavbarGrow">
               <div>
                 <IconButton aria-label="Show cart items" color="inherit">
-                  <Badge badgeContent={2}>
+                  <Badge badgeContent={totalItems ?? 0} color="secondary">
                     <ShoppingCart />
                   </Badge>
                 </IconButton>
