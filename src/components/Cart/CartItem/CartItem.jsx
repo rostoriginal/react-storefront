@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import cartItemTheme, { CartItemButtons } from "./styles";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onUpdateCartQvt, onRemoveFromCart }) => {
   return (
     <ThemeProvider theme={cartItemTheme}>
       <Card>
@@ -23,15 +23,28 @@ const CartItem = ({ item }) => {
         </CardContent>
         <CardActions>
           <CartItemButtons>
-            <Button type="button" size="small">
+            <Button
+              type="button"
+              size="small"
+              onClick={() => onUpdateCartQvt(item.id, item.quantity - 1)}
+            >
               -
             </Button>
             <Typography>{item.quantity}</Typography>
-            <Button type="button" size="small">
+            <Button
+              type="button"
+              size="small"
+              onClick={() => onUpdateCartQvt(item.id, item.quantity + 1)}
+            >
               +
             </Button>
           </CartItemButtons>
-          <Button type="button" color="secondary" variant="contained">
+          <Button
+            type="button"
+            color="secondary"
+            variant="contained"
+            onClick={() => onRemoveFromCart(item.id)}
+          >
             Remove
           </Button>
         </CardActions>

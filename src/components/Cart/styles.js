@@ -5,12 +5,9 @@ export const CartToolbar = styled("div")({
   root: (theme) => theme.mixins.toolbar,
 });
 
-export const EmptyButton = ({ children, size, type, color, variant }) => (
+export const EmptyButton = ({ children, ...props }) => (
   <Button
-    size={size}
-    type={type}
-    color={color}
-    variant={variant}
+    {...props}
     sx={{
       minWidth: "150px",
       marginBottom: (theme) => {
