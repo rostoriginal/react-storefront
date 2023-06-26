@@ -30,12 +30,9 @@ export const EmptyButton = ({ children, ...props }) => (
   </Button>
 );
 
-export const CheckoutButton = ({ children, size, type, color, variant }) => (
+export const CheckoutButton = ({ children, ...props }) => (
   <Button
-    size={size}
-    type={type}
-    color={color}
-    variant={variant}
+    {...props}
     sx={{
       minWidth: "150px",
     }}

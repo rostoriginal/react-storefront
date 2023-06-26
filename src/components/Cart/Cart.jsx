@@ -55,6 +55,8 @@ const Cart = ({ cart, onUpdateCartQvt, onRemoveFromCart, onEmptyCart }) => {
             Empty Cart
           </EmptyButton>
           <CheckoutButton
+            component={Link}
+            to="/checkout"
             size="large"
             type="button"
             variant="contained"
