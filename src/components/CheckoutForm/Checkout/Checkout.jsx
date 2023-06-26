@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Paper,
   Stepper,
@@ -16,14 +16,36 @@ import checkoutTheme, { CheckoutMain } from "./styles";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 
+import { commerce } from "../../../lib/commerce";
+
 const steps = ["Shipping address", "Payment details"];
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
   const [activeStep, setActiveStep] = useState(0);
-
+  const [checkoutToken, setCheckoutToken] = useState(null);
   const Confirmation = () => <div>Confirmation</div>;
 
-  const Form = () => (activeStep === 0 ? <AddressForm /> : <PaymentForm />);
+  const Form = () =>
+    activeStep === 0 ? (
+      <AddressForm checkoutToken={checkoutToken} />
+    ) : (
+      <PaymentForm />
+    );
+
+  useEffect(() => {
+    const generateToken = async () => {
+      console.log(cart);
+      try {
+        const token = await commerce.checkout.generateToken(cart.id, {
+          type: "cart",
+        });
+
+        setCheckoutToken(token);
+      } catch (error) {}
+    };
+
+    generateToken();
+  }, [cart]);
 
   return (
     <>
@@ -42,7 +64,11 @@ const Checkout = () => {
                 );
               })}
             </Stepper>
-            {activeStep === steps.length ? <Confirmation /> : <Form />}
+            {activeStep === steps.length ? (
+              <Confirmation />
+            ) : (
+              checkoutToken && <Form />
+            )}
           </Paper>
         </CheckoutMain>
       </ThemeProvider>
